@@ -47,6 +47,7 @@ type
     procedure getTotal(e1: TEdit);
     procedure getCambio(e: TEdit);
     procedure getIVA(e: TEdit);
+    procedure terminarVenta();
     procedure pagar(monto: Currency; e: TEdit);
     procedure getVentas();
 
@@ -172,6 +173,15 @@ procedure CajaClass.sumaTotal(num: Currency);
 begin
   total := aux + num;
   aux := total;
+end;
+
+procedure CajaClass.terminarVenta;
+begin
+ total:=0 ;
+ aux := 0;
+ monto := 0;
+ iva := 0;
+ cambio := 0;
 end;
 
 end.

@@ -25,9 +25,13 @@ type
     StaticText2: TStaticText;
     StaticText3: TStaticText;
     ivaEdit: TEdit;
+    StaticText4: TStaticText;
+    EditCambio: TEdit;
+    StaticText5: TStaticText;
     procedure ButtonGetCientesClick(Sender: TObject);
     procedure ButtonAddProductClick(Sender: TObject);
     procedure totalButtonClick(Sender: TObject);
+    procedure pagarButtonClick(Sender: TObject);
   private
     { Private declarations }
     Empleado: CajaClass;
@@ -52,6 +56,11 @@ procedure TForm4.ButtonGetCientesClick(Sender: TObject);
 begin
    //Empleado.getEmpleado();
    Empleado.getClientes(ListBox1);
+end;
+
+procedure TForm4.pagarButtonClick(Sender: TObject);
+begin
+ Empleado.pagar(StrToCurr(EditMonto.Text), EditCambio);
 end;
 
 procedure TForm4.totalButtonClick(Sender: TObject);

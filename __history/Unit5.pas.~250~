@@ -134,6 +134,11 @@ procedure CajaClass.getProducto(id: Integer; lb: TListBox);
 begin
    q := TFDQuery.Create(nil);
    try
+      if not (IntToStr(id) in [#8, '0'..'9']) then begin
+        ShowMessage('Invalid key');
+        // Discard the key
+        id := #0;
+      end;
       q.Connection := dm.db;
       q.SQL.Text := 'SELECT * FROM producto where id_producto = '+id.ToString;
       q.Open;
@@ -163,7 +168,7 @@ begin
    end
    else
    begin
-      ShowMessage(CurrToStr(monto)+'No Alcanca');
+      ShowMessage('falta Dinero :(');
    end;
    
 end;

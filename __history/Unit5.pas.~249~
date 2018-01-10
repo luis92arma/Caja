@@ -7,7 +7,7 @@ uses UDM, System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Optio
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.SQLite,
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs, FireDAC.VCLUI.Wait, Data.DB,
   FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.StdCtrls;
+  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Dialogs;
 
 
 type
@@ -134,6 +134,11 @@ procedure CajaClass.getProducto(id: Integer; lb: TListBox);
 begin
    q := TFDQuery.Create(nil);
    try
+      if not (id in [#8, '0'..'9']) then begin
+        ShowMessage('Invalid key');
+        // Discard the key
+        id := #0;
+      end;
       q.Connection := dm.db;
       q.SQL.Text := 'SELECT * FROM producto where id_producto = '+id.ToString;
       q.Open;
@@ -160,6 +165,10 @@ begin
    begin
      cambio := monto - total;
      e.Text := CurrToStr(cambio);
+   end
+   else
+   begin
+      ShowMessage('falta Dinero :(');
    end;
    
 end;

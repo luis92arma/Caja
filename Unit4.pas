@@ -28,10 +28,14 @@ type
     StaticText4: TStaticText;
     EditCambio: TEdit;
     StaticText5: TStaticText;
+    otraVentaButton: TButton;
+    ClienteNuevoButton: TButton;
     procedure ButtonGetCientesClick(Sender: TObject);
     procedure ButtonAddProductClick(Sender: TObject);
     procedure totalButtonClick(Sender: TObject);
     procedure pagarButtonClick(Sender: TObject);
+    procedure otraVentaButtonClick(Sender: TObject);
+    procedure ClienteNuevoButtonClick(Sender: TObject);
   private
     { Private declarations }
     Empleado: CajaClass;
@@ -56,6 +60,20 @@ procedure TForm4.ButtonGetCientesClick(Sender: TObject);
 begin
    //Empleado.getEmpleado();
    Empleado.getClientes(ListBox1);
+end;
+
+procedure TForm4.ClienteNuevoButtonClick(Sender: TObject);
+begin
+  Empleado.terminarVenta();
+  ListBoxVenta.Clear;
+  totalEdit.Clear;
+  EditCambio.Clear;
+  EditMonto.Clear;
+end;
+
+procedure TForm4.otraVentaButtonClick(Sender: TObject);
+begin
+   ListBoxVenta.Clear;
 end;
 
 procedure TForm4.pagarButtonClick(Sender: TObject);

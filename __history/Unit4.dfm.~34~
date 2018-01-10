@@ -2,7 +2,7 @@ object Form4: TForm4
   Left = 0
   Top = 0
   Caption = 'Form4'
-  ClientHeight = 308
+  ClientHeight = 357
   ClientWidth = 594
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -80,9 +80,74 @@ object Form4: TForm4
   end
   object totalEdit: TEdit
     Left = 265
-    Top = 250
+    Top = 279
     Width = 96
     Height = 21
+    Enabled = False
     TabOrder = 8
+  end
+  object pagarButton: TButton
+    Left = 384
+    Top = 200
+    Width = 121
+    Height = 25
+    Caption = 'Pagar'
+    TabOrder = 9
+    OnClick = pagarButtonClick
+  end
+  object EditMonto: TEdit
+    Left = 384
+    Top = 143
+    Width = 121
+    Height = 21
+    TabOrder = 10
+  end
+  object StaticText2: TStaticText
+    Left = 384
+    Top = 170
+    Width = 121
+    Height = 17
+    Caption = 'Monto recibido'
+    TabOrder = 11
+  end
+  object StaticText3: TStaticText
+    Left = 216
+    Top = 279
+    Width = 28
+    Height = 21
+    Caption = 'Total'
+    TabOrder = 12
+  end
+  object ivaEdit: TEdit
+    Left = 265
+    Top = 240
+    Width = 96
+    Height = 21
+    Enabled = False
+    TabOrder = 13
+  end
+  object StaticText4: TStaticText
+    Left = 223
+    Top = 240
+    Width = 21
+    Height = 17
+    Caption = 'IVA'
+    TabOrder = 14
+  end
+  object EditCambio: TEdit
+    Left = 265
+    Top = 320
+    Width = 96
+    Height = 21
+    Enabled = False
+    TabOrder = 15
+  end
+  object StaticText5: TStaticText
+    Left = 205
+    Top = 320
+    Width = 39
+    Height = 17
+    Caption = 'Cambio'
+    TabOrder = 16
   end
 end

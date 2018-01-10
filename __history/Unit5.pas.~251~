@@ -163,7 +163,7 @@ begin
    end
    else
    begin
-      ShowMessage(CurrToStr(monto)+' te falta baro morro');
+      ShowMessage('falta Dinero :(');
    end;
    
 end;

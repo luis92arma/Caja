@@ -3,7 +3,7 @@ object Form4: TForm4
   Top = 0
   Caption = 'Form4'
   ClientHeight = 357
-  ClientWidth = 594
+  ClientWidth = 648
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -62,7 +62,7 @@ object Form4: TForm4
   end
   object ButtonAddProduct: TButton
     Left = 384
-    Top = 67
+    Top = 66
     Width = 121
     Height = 25
     Caption = 'Agregar producto'
@@ -149,5 +149,29 @@ object Form4: TForm4
     Height = 17
     Caption = 'Cambio'
     TabOrder = 16
+  end
+  object otraVentaButton: TButton
+    Left = 528
+    Top = 16
+    Width = 75
+    Height = 25
+    Caption = 'Otro ticket'
+    TabOrder = 17
+    OnClick = otraVentaButtonClick
+  end
+  object ClienteNuevoButton: TButton
+    Left = 424
+    Top = 264
+    Width = 179
+    Height = 73
+    Caption = 'Cliente Nuevo'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -27
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 18
+    OnClick = ClienteNuevoButtonClick
   end
 end

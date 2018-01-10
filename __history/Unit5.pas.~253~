@@ -47,6 +47,7 @@ type
     procedure getTotal(e1: TEdit);
     procedure getCambio(e: TEdit);
     procedure getIVA(e: TEdit);
+    procedure terminarVenta();
     procedure pagar(monto: Currency; e: TEdit);
     procedure getVentas();
 
@@ -163,7 +164,7 @@ begin
    end
    else
    begin
-     
+      ShowMessage('falta Dinero :(');
    end;
    
 end;
