@@ -1,0 +1,55 @@
+object dm: Tdm
+  OldCreateOrder = False
+  Height = 387
+  Width = 460
+  object db: TFDConnection
+    Params.Strings = (
+      'Database=C:\LAHI\capacitacion\caja\db\caja.db'
+      'DriverID=SQLite')
+    Connected = True
+    LoginPrompt = False
+    Left = 184
+    Top = 64
+  end
+  object q_empleado: TFDQuery
+    Connection = db
+    SQL.Strings = (
+      'select * from empleado;')
+    Left = 352
+    Top = 80
+    object q_empleadoid_empleadoi: TIntegerField
+      FieldName = 'id_empleadoi'
+      Origin = 'id_empleadoi'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object q_empleadonombre_empleado: TStringField
+      FieldName = 'nombre_empleado'
+      Origin = 'nombre_empleado'
+      Required = True
+      Size = 50
+    end
+    object q_empleadoap_empleado: TStringField
+      FieldName = 'ap_empleado'
+      Origin = 'ap_empleado'
+      Required = True
+      Size = 50
+    end
+    object q_empleadoam_empleado: TStringField
+      FieldName = 'am_empleado'
+      Origin = 'am_empleado'
+      Required = True
+      Size = 50
+    end
+    object q_empleadoid_horaio_caja_empleado: TIntegerField
+      FieldName = 'id_horaio_caja_empleado'
+      Origin = 'id_horaio_caja_empleado'
+      Required = True
+    end
+  end
+  object q_producto: TFDQuery
+    Connection = db
+    Left = 80
+    Top = 208
+  end
+end
