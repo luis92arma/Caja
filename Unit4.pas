@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
   FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
-  Unit5, UDM, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Buttons, Vcl.Mask;
+  Unit5, UDM, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Buttons, Vcl.Mask, clientes;
 
 type
   TForm4 = class(TForm)
@@ -69,6 +69,12 @@ begin
   totalEdit.Clear;
   EditCambio.Clear;
   EditMonto.Clear;
+  Visible := False;
+  try
+    Form1.ShowModal;
+  finally
+    Visible := True;
+  end;
 end;
 
 procedure TForm4.otraVentaButtonClick(Sender: TObject);

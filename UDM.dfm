@@ -4,9 +4,8 @@ object dm: Tdm
   Width = 460
   object db: TFDConnection
     Params.Strings = (
-      'Database=C:\LAHI\capacitacion\caja\db\caja.db'
+      'Database=C:\MacroTecnologia\Caja\db\caja.db'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
     Left = 184
     Top = 64

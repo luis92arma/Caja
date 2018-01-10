@@ -55,7 +55,7 @@ object Form4: TForm4
   object StaticText1: TStaticText
     Left = 384
     Top = 43
-    Width = 121
+    Width = 100
     Height = 17
     Caption = 'Codigo del Producto'
     TabOrder = 5
@@ -105,7 +105,7 @@ object Form4: TForm4
   object StaticText2: TStaticText
     Left = 384
     Top = 170
-    Width = 121
+    Width = 74
     Height = 17
     Caption = 'Monto recibido'
     TabOrder = 11
@@ -114,7 +114,7 @@ object Form4: TForm4
     Left = 216
     Top = 279
     Width = 28
-    Height = 21
+    Height = 17
     Caption = 'Total'
     TabOrder = 12
   end
@@ -160,10 +160,10 @@ object Form4: TForm4
     OnClick = otraVentaButtonClick
   end
   object ClienteNuevoButton: TButton
-    Left = 424
-    Top = 264
-    Width = 179
-    Height = 73
+    Left = 384
+    Top = 240
+    Width = 219
+    Height = 97
     Caption = 'Cliente Nuevo'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
