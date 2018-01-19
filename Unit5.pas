@@ -50,6 +50,7 @@ type
     procedure terminarVenta();
     procedure pagar(monto: Currency; e: TEdit);
     procedure getVentas();
+    procedure AddNewCliente(e1 ,e2, e3, e4: String);
 
   published
     property id_empleado: Integer read Fid_empleado;
@@ -86,7 +87,26 @@ var
 
 implementation
 { CajaClass }
- constructor CajaClass.Create;
+ procedure CajaClass.AddNewCliente(e1, e2, e3, e4:String);
+begin
+  q := TFDQuery.Create(nil);
+  try
+     q.Connection := dm.db;
+     q.SQL.Text := 'INSERT INTO cliente(id_cliente, nombre_cliente, tarjeta_cliente, adeudo_cliente)'+
+                   ' VALUES(:id,:nombre,:tarjeta,:adeudo)';
+     //q.SQL.Add()
+     q.Params.ParamByName('id').Value := (e1);
+     q.Params.ParamByName('nombre').AsString := e2;
+     q.Params.ParamByName('tarjeta').AsString := e3;
+     q.Params.ParamByName('adeudo').AsString := e4;
+     q.ExecSQL;
+  finally
+    FreeAndNil(q);
+  end;
+
+end;
+
+constructor CajaClass.Create;
 begin
 
 end;
@@ -121,7 +141,7 @@ function CajaClass.getEmpleado(id: Integer): TDataSet;
     q := TFDQuery.Create(nil);
     q.Connection := dm.db;
     //q.SQL.Text :=
-    q.SQL.Text:= 'SELECT * FROM empleado where id_empleado =: id';
+    q.SQL.Text:= 'SELECT * FROM empleado where id_empleado ='+id.ToString;
     q.ExecSQL;
     q.Open;
   end;

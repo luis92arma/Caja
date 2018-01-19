@@ -123,7 +123,7 @@ object Form4: TForm4
     Top = 240
     Width = 96
     Height = 21
-    Enabled = False
+    ReadOnly = True
     TabOrder = 13
   end
   object StaticText4: TStaticText
@@ -173,5 +173,14 @@ object Form4: TForm4
     ParentFont = False
     TabOrder = 18
     OnClick = ClienteNuevoButtonClick
+  end
+  object EmpleadosButton: TButton
+    Left = 8
+    Top = 324
+    Width = 75
+    Height = 25
+    Caption = 'Empleados'
+    TabOrder = 19
+    OnClick = EmpleadosButtonClick
   end
 end

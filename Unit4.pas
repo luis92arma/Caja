@@ -30,12 +30,14 @@ type
     StaticText5: TStaticText;
     otraVentaButton: TButton;
     ClienteNuevoButton: TButton;
+    EmpleadosButton: TButton;
     procedure ButtonGetCientesClick(Sender: TObject);
     procedure ButtonAddProductClick(Sender: TObject);
     procedure totalButtonClick(Sender: TObject);
     procedure pagarButtonClick(Sender: TObject);
     procedure otraVentaButtonClick(Sender: TObject);
     procedure ClienteNuevoButtonClick(Sender: TObject);
+    procedure EmpleadosButtonClick(Sender: TObject);
   private
     { Private declarations }
     Empleado: CajaClass;
@@ -71,10 +73,31 @@ begin
   EditMonto.Clear;
   Visible := False;
   try
-    Form1.ShowModal;
+    Fclientes.ShowModal;
   finally
     Visible := True;
   end;
+end;
+
+procedure TForm4.EmpleadosButtonClick(Sender: TObject);
+var
+   Pack: HMODULE;
+   ClassP: TPersistentClass;
+begin
+     Pack := LoadPackage('Package2.bpl');
+     if Pack <> 0 then
+     begin
+       //ShowMessage('Si hay BPL');
+       ClassP := GetClass('TForm2');
+       if ClassP <> nil then
+       with TComponentClass(ClassP).Create(Application) as TCustomForm do
+       begin
+         //ShowMessage('Si hay clase');
+         ShowModal;
+         Free;
+       end;
+       UnloadPackage(Pack);
+     end;
 end;
 
 procedure TForm4.otraVentaButtonClick(Sender: TObject);

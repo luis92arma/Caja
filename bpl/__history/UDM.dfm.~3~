@@ -1,0 +1,15 @@
+object DataModule3: TDataModule3
+  OldCreateOrder = False
+  Height = 357
+  Width = 517
+  object db: TFDConnection
+    Params.Strings = (
+      'Database=C:\LAHI\capacitacion\Caja\db\caja.db'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    Connected = True
+    LoginPrompt = False
+    Left = 48
+    Top = 64
+  end
+end

@@ -4,18 +4,21 @@ object dm: Tdm
   Width = 460
   object db: TFDConnection
     Params.Strings = (
-      'Database=C:\MacroTecnologia\Caja\db\caja.db'
+      'Database=C:\LAHI\capacitacion\Caja\db\caja.db'
+      'LockingMode=Normal'
       'DriverID=SQLite')
+    Connected = True
     LoginPrompt = False
-    Left = 184
-    Top = 64
+    Left = 248
+    Top = 24
   end
   object q_empleado: TFDQuery
+    Active = True
     Connection = db
     SQL.Strings = (
       'select * from empleado;')
-    Left = 352
-    Top = 80
+    Left = 360
+    Top = 24
     object q_empleadoid_empleadoi: TIntegerField
       FieldName = 'id_empleadoi'
       Origin = 'id_empleadoi'
@@ -47,11 +50,12 @@ object dm: Tdm
     end
   end
   object q_producto: TFDQuery
+    Active = True
     Connection = db
     SQL.Strings = (
       'select * from producto;')
-    Left = 80
-    Top = 112
+    Left = 304
+    Top = 24
     object q_productoid_producto: TIntegerField
       FieldName = 'id_producto'
       Origin = 'id_producto'
@@ -71,11 +75,12 @@ object dm: Tdm
     end
   end
   object q_horario: TFDQuery
+    Active = True
     Connection = db
     SQL.Strings = (
       'select * from horariocaja;')
-    Left = 288
-    Top = 200
+    Left = 248
+    Top = 80
     object q_horarioid_horario_caja: TIntegerField
       FieldName = 'id_horario_caja'
       Origin = 'id_horario_caja'
@@ -94,11 +99,12 @@ object dm: Tdm
     end
   end
   object q_cliente: TFDQuery
+    Active = True
     Connection = db
     SQL.Strings = (
       'select * from cliente;')
-    Left = 112
-    Top = 256
+    Left = 304
+    Top = 72
     object q_clienteid_cliente: TIntegerField
       FieldName = 'id_cliente'
       Origin = 'id_cliente'
@@ -117,6 +123,57 @@ object dm: Tdm
     object q_clienteadeudo_cliente: TFloatField
       FieldName = 'adeudo_cliente'
       Origin = 'adeudo_cliente'
+    end
+  end
+  object ADOConnection1: TADOConnection
+    ConnectionString = 
+      'Provider=SQLNCLI11.1;Integrated Security="";Persist Security Inf' +
+      'o=False;User ID=sa;Initial Catalog=caamt;Data Source=192.168.100' +
+      '.3;Initial File Name="";Server SPN="";'
+    LoginPrompt = False
+    Provider = 'SQLNCLI11.1'
+    Left = 24
+    Top = 96
+  end
+  object ADOQuery1: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select  *  from c_tiposervicio')
+    Left = 24
+    Top = 152
+    object ADOQuery1tsr_seq: TIntegerField
+      FieldName = 'tsr_seq'
+    end
+    object ADOQuery1tsr_nombre: TStringField
+      FieldName = 'tsr_nombre'
+      Size = 50
+    end
+    object ADOQuery1tsr_medido: TBooleanField
+      FieldName = 'tsr_medido'
+    end
+  end
+  object DataSetProvider1: TDataSetProvider
+    DataSet = ADOQuery1
+    Left = 16
+    Top = 216
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider1'
+    Left = 160
+    Top = 288
+    object ClientDataSet1tsr_seq: TIntegerField
+      FieldName = 'tsr_seq'
+    end
+    object ClientDataSet1tsr_nombre: TStringField
+      FieldName = 'tsr_nombre'
+      Size = 50
+    end
+    object ClientDataSet1tsr_medido: TBooleanField
+      FieldName = 'tsr_medido'
     end
   end
 end

@@ -1,0 +1,31 @@
+unit clientes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TFclientes = class(TForm)
+    Label1: TLabel;
+    EditNombreCliente: TEdit;
+    EditTarjeta: TEdit;
+    Label2: TLabel;
+    EditAdeudo: TEdit;
+    Label3: TLabel;
+    ButtonClienteNuevo: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Fclientes: TFclientes;
+
+implementation
+
+{$R *.dfm}
+
+end.

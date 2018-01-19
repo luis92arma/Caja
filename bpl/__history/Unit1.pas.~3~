@@ -1,0 +1,16 @@
+unit Unit1;
+
+interface
+
+uses System.Classes;
+
+type
+    TData = class(TThread)
+      private
+      public
+      published
+    end;
+
+implementation
+
+end.

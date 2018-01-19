@@ -1,0 +1,31 @@
+unit Unit1;
+
+interface
+
+uses System.Classes;
+
+type
+    TData = class(TThread)
+    
+      private
+      public
+            Constructor Create();
+            procedure Execute; override;
+      published
+    end;
+
+var
+   Hilo: TData;
+
+implementation
+  Constructor Hilo.Create();
+  begin
+  
+  end;
+
+  Procedure Hilo.Execute();
+  begin
+  
+  end;
+
+end.
