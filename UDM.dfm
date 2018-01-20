@@ -77,7 +77,7 @@ object dm: Tdm
   object q_horario: TFDQuery
     Connection = db
     SQL.Strings = (
-      'select * from empleado;')
+      'select * from horarioCaja;')
     Left = 248
     Top = 80
     object q_horarioid_horario_caja: TIntegerField

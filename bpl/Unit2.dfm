@@ -2,7 +2,7 @@ object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'Form from BPL'
-  ClientHeight = 456
+  ClientHeight = 509
   ClientWidth = 625
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,28 +22,28 @@ object Form2: TForm2
   end
   object Label2: TLabel
     Left = 8
-    Top = 246
+    Top = 225
     Width = 37
     Height = 13
     Caption = 'Nombre'
   end
   object Label3: TLabel
     Left = 8
-    Top = 285
+    Top = 254
     Width = 78
     Height = 13
     Caption = 'Apellido paterno'
   end
   object Label4: TLabel
     Left = 8
-    Top = 331
+    Top = 281
     Width = 80
     Height = 13
     Caption = 'Apellido Materno'
   end
   object Label5: TLabel
-    Left = 10
-    Top = 377
+    Left = 8
+    Top = 305
     Width = 35
     Height = 13
     Caption = 'Horario'
@@ -64,6 +64,7 @@ object Form2: TForm2
     Height = 97
     ItemHeight = 13
     TabOrder = 1
+    OnClick = ListBox1Click
   end
   object Button2: TButton
     Left = 167
@@ -84,48 +85,67 @@ object Form2: TForm2
     OnClick = Button3Click
   end
   object id: TEdit
-    Left = 8
-    Top = 176
+    Left = 131
+    Top = 197
     Width = 153
     Height = 21
     TabOrder = 4
   end
   object Nombre: TEdit
-    Left = 8
-    Top = 219
+    Left = 131
+    Top = 224
     Width = 153
     Height = 21
     TabOrder = 5
   end
   object Apellido: TEdit
-    Left = 8
-    Top = 262
+    Left = 131
+    Top = 251
     Width = 153
     Height = 21
     TabOrder = 6
   end
   object apellido2: TEdit
-    Left = 8
-    Top = 304
+    Left = 131
+    Top = 278
     Width = 153
     Height = 21
     TabOrder = 7
   end
-  object IdHorario: TEdit
-    Left = 8
-    Top = 350
-    Width = 153
-    Height = 21
-    TabOrder = 8
-  end
   object Button4: TButton
     Left = 8
     Top = 396
-    Width = 153
+    Width = 276
     Height = 52
     Caption = 'Guardar'
-    TabOrder = 9
+    TabOrder = 8
     OnClick = Button4Click
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 131
+    Top = 305
+    Width = 153
+    Height = 85
+    Caption = 'Horario'
+    TabOrder = 9
+  end
+  object RadioButton1: TRadioButton
+    Left = 149
+    Top = 325
+    Width = 113
+    Height = 17
+    Caption = 'Matutino'
+    TabOrder = 10
+    OnClick = RadioButton1Click
+  end
+  object RadioButton2: TRadioButton
+    Left = 149
+    Top = 348
+    Width = 113
+    Height = 17
+    Caption = 'Vespertino'
+    TabOrder = 11
+    OnClick = RadioButton2Click
   end
   object FDConnection1: TFDConnection
     Params.Strings = (

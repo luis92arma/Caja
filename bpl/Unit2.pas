@@ -3,14 +3,14 @@ unit Unit2;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.StrUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Unit1, System.Threading, Vcl.Grids,
   Vcl.StdCtrls, Data.DB, Vcl.DBGrids, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.SQLite,
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs, FireDAC.VCLUI.Wait,
   FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet;
+  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.ExtCtrls;
 
 type
   TForm2 = class(TForm)
@@ -23,22 +23,28 @@ type
     Nombre: TEdit;
     Apellido: TEdit;
     apellido2: TEdit;
-    IdHorario: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     Button4: TButton;
+    RadioGroup1: TRadioGroup;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure RadioButton1Click(Sender: TObject);
+    procedure RadioButton2Click(Sender: TObject);
+    procedure ListBox1Click(Sender: TObject);
   private
     { Private declarations }
     Hilo: TData;
   public
     { Public declarations }
+    Procedure ShowUpdate(id:Integer);
   end;
 
 type
@@ -57,6 +63,7 @@ type
 var
   Form2: TForm2;
   q: TFDQuery;
+  EHorario: Integer;
 implementation
 
 {$R *.dfm}
@@ -74,7 +81,8 @@ begin
                 q.Open;
                 while not q.Eof do
                 begin
-                     ListBox1.Items.Add(q.FieldByName('nombre_empleado').AsString);
+                     ListBox1.Items.Add(q.FieldByName('id_empleadoi').AsString+','+
+                     q.FieldByName('nombre_empleado').AsString);
                      q.Next;
                 end;
              finally
@@ -134,12 +142,77 @@ begin
             qE.Params.ParamByName('nombre').Value := Nombre.Text;
             qE.Params.ParamByName('ap').Value := Apellido.Text;
             qE.Params.ParamByName('am').Value := apellido2.Text;
-            qE.Params.ParamByName('hora').Value := IdHorario.Text;
+            qE.Params.ParamByName('hora').Value := IntToStr(EHorario);
             qE.ExecSQL;
          finally
            FreeAndNil(qE);
          end;
     end);
+end;
+
+procedure TForm2.ListBox1Click(Sender: TObject);
+var
+   IDnombre: String;
+   Items: TArray<String>;
+   Separete: array[0..0] of Char;
+begin
+     TTask.Run(
+     procedure
+     begin
+        IDnombre := ListBox1.Items[ListBox1.ItemIndex];
+        Separete[0] := ',';
+        items := IDnombre.Split(Separete);
+        //ShowMessage(items[0]);
+        //ShowUpdate(StrToInt(items[0]));
+     end);
+end;
+
+procedure TForm2.RadioButton1Click(Sender: TObject);
+var
+   taskB: ITask;
+begin
+     taskB := TTask.Create(
+     procedure
+     begin
+          if RadioButton1.Checked then
+          begin
+               ShowMessage('Matutino');
+               EHorario := 1;
+          end;
+     end);
+     taskB.Start;
+end;
+
+procedure TForm2.RadioButton2Click(Sender: TObject);
+var
+   taskB: ITask;
+begin
+   taskB := TTask.Create(
+     procedure
+     begin
+          if RadioButton2.Checked then
+          begin
+               ShowMessage('Vespertino');
+               EHorario := 2;
+          end;
+     end);
+     taskB.Start;
+end;
+
+procedure TForm2.ShowUpdate(id: Integer);
+var
+   qU: TFDQuery;
+begin
+     TTask.Run(
+     Procedure
+     begin
+          qU := TFDQuery.Create(nil);
+          try
+             
+          finally
+           FreeAndNil(qU)
+          end;
+      end);
 end;
 
 Initialization
