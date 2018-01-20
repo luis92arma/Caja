@@ -71,11 +71,11 @@ begin
   totalEdit.Clear;
   EditCambio.Clear;
   EditMonto.Clear;
-  Visible := False;
+  //Visible := False;
   try
     Fclientes.ShowModal;
   finally
-    Visible := True;
+    //Visible := True;
   end;
 end;
 
@@ -94,9 +94,7 @@ begin
        begin
          //ShowMessage('Si hay clase');
          ShowModal;
-         Free;
        end;
-       UnloadPackage(Pack);
      end;
 end;
 

@@ -40,7 +40,6 @@ requires
 
 contains
   Unit2 in 'Unit2.pas' {Form2},
-  Unit1 in 'Unit1.pas',
-  UDMP in 'UDMP.pas' {DataModule3: TDataModule};
+  Unit1 in 'Unit1.pas';
 
 end.
