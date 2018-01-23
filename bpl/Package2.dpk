@@ -40,6 +40,7 @@ requires
 
 contains
   Unit2 in 'Unit2.pas' {Form2},
-  Unit1 in 'Unit1.pas';
+  Unit1 in 'Unit1.pas',
+  Unit3 in 'Unit3.pas' {Form3};
 
 end.

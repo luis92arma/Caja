@@ -10,7 +10,7 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.SQLite,
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs, FireDAC.VCLUI.Wait,
   FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.ExtCtrls;
+  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.ExtCtrls, Vcl.Menus, Unit3;
 
 type
   TForm2 = class(TForm)
@@ -42,6 +42,7 @@ type
   private
     { Private declarations }
     Hilo: TData;
+    Update: TForm3;
   public
     { Public declarations }
     Procedure ShowUpdate(id:Integer);
@@ -163,7 +164,7 @@ begin
         Separete[0] := ',';
         items := IDnombre.Split(Separete);
         //ShowMessage(items[0]);
-        //ShowUpdate(StrToInt(items[0]));
+        ShowUpdate(StrToInt(items[0]));
      end);
 end;
 
@@ -202,17 +203,24 @@ end;
 procedure TForm2.ShowUpdate(id: Integer);
 var
    qU: TFDQuery;
+   FormUpdate: TForm;
 begin
      TTask.Run(
      Procedure
      begin
-          qU := TFDQuery.Create(nil);
+          FormUpdate := TForm3.Create(self);
           try
-             
+             FormUpdate.ShowModal;
           finally
-           FreeAndNil(qU)
+          FormUpdate.Free;
           end;
       end);
+
+     TTask.Run(
+     procedure
+     begin
+       Update.ShowData(id);
+     end);
 end;
 
 Initialization

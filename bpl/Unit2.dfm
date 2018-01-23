@@ -3,7 +3,7 @@ object Form2: TForm2
   Top = 0
   Caption = 'Form from BPL'
   ClientHeight = 509
-  ClientWidth = 625
+  ClientWidth = 328
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -76,8 +76,8 @@ object Form2: TForm2
     OnClick = Button2Click
   end
   object Button3: TButton
-    Left = 326
-    Top = 8
+    Left = 167
+    Top = 63
     Width = 153
     Height = 49
     Caption = 'Sin hilos'
@@ -152,8 +152,8 @@ object Form2: TForm2
       'Database=C:\LAHI\capacitacion\Caja\db\caja.db'
       'LockingMode=Normal'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
-    Left = 600
+    Left = 232
+    Top = 464
   end
 end
