@@ -75,6 +75,7 @@ begin
      TTask.Run(
         procedure
         begin
+             ListBox1.Clear;
              q := TFDQuery.Create(nil);
              try
                 q.Connection := FDConnection1;

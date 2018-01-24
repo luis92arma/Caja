@@ -55,14 +55,19 @@ begin
         qU := TFDQuery.Create(nil);
         try
            qU.Connection := ConnectionSQLite;
-           qU.SQL.Text := 'update empleado'+
-                          'set nombre_empleado = :ne, ap_empleado = :ape, am_empleado = :ame, id_horario = :idh'+
-                          'where id_empleadoi ='+IdEmpleado.ToString;
-           qU.Params.ParamByName('ne').AsString := Edit2.Text;
-           qU.Params.ParamByName('ape').AsString := Edit3.Text;
-           qU.Params.ParamByName('ame').AsString := Edit4.Text;
-           qU.Params.ParamByName('ne').Value := EHorario;
-           qU.ExecSQL; 
+           qU.SQL.Text := 'update empleado '+
+                          'set nombre_empleado = :ne , ap_empleado = :ape , am_empleado = :ame , id_horario = :idh '+
+                          'where id_empleadoi = '+IdEmpleado.ToString;
+           //ShowMessage(qU.SQL.Text);
+           qU.Params.ParamByName('ne').value := Edit2.Text;
+           qU.Params.ParamByName('ape').value := Edit3.Text;
+           qU.Params.ParamByName('ame').Value := Edit4.Text;
+           qU.Params.ParamByName('idh').Value := EHorario.ToString;
+           qU.ExecSQL;
+           if qU.Eof then
+           begin
+                ShowMessage('Datos Actualizados');
+           end;
         finally
                FreeAndNil(qU);
         end;

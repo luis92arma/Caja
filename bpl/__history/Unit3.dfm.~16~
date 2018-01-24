@@ -1,9 +1,12 @@
 object Form3: TForm3
+  AlignWithMargins = True
   Left = 0
   Top = 0
+  Align = alLeft
+  AlphaBlend = True
   Caption = 'Form3'
   ClientHeight = 293
-  ClientWidth = 137
+  ClientWidth = 143
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,6 +15,7 @@ object Form3: TForm3
   Font.Style = []
   OldCreateOrder = False
   OnActivate = FormActivate
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Edit1: TEdit
@@ -19,8 +23,8 @@ object Form3: TForm3
     Top = 8
     Width = 121
     Height = 21
+    Enabled = False
     TabOrder = 0
-    Text = 'Edit1'
   end
   object Edit2: TEdit
     Left = 8
@@ -79,15 +83,17 @@ object Form3: TForm3
     Height = 57
     Caption = 'Actualizar'
     TabOrder = 7
+    OnClick = Button1Click
   end
-  object FDConnection1: TFDConnection
+  object ConnectionSQLite: TFDConnection
+    ConnectionName = 'ConnecSQLite'
     Params.Strings = (
       'Database=C:\LAHI\capacitacion\Caja\db\caja.db'
       'LockingMode=Normal'
       'DriverID=SQLite')
     Connected = True
     LoginPrompt = False
-    Left = 128
-    Top = 232
+    Left = 168
+    Top = 216
   end
 end

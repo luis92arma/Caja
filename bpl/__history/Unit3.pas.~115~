@@ -55,10 +55,15 @@ begin
         qU := TFDQuery.Create(nil);
         try
            qU.Connection := ConnectionSQLite;
-           qU.SQL.Text := 'update empleado'+
-                          'set nombre_empleado = :ne, ap_empleado = :ape, am_empleado = :ame, id_horario = :idh'+
-                          'where id_empleadoi ='+IdEmpleado.ToString;
-           qU.Params.ParamByName('ne').Value := e2; 
+           qU.SQL.Text := 'update empleado '+
+                          'set nombre_empleado = :ne , ap_empleado = :ape , am_empleado = :ame , id_horario = :idh '+
+                          'where id_empleadoi = '+IdEmpleado.ToString;
+           //ShowMessage(qU.SQL.Text);
+           qU.Params.ParamByName('ne').value := Edit2.Text;
+           qU.Params.ParamByName('ape').value := Edit3.Text;
+           qU.Params.ParamByName('ame').Value := Edit4.Text;
+           qU.Params.ParamByName('idh').Value := EHorario.ToString;
+           qU.ExecSQL; 
         finally
                FreeAndNil(qU);
         end;

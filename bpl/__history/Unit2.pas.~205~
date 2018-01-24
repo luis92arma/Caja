@@ -42,6 +42,7 @@ type
   private
     { Private declarations }
     Hilo: TData;
+    Update: TForm3;
   public
     { Public declarations }
     Procedure ShowUpdate(id:Integer);
@@ -162,7 +163,7 @@ begin
         IDnombre := ListBox1.Items[ListBox1.ItemIndex];
         Separete[0] := ',';
         items := IDnombre.Split(Separete);
-        ShowMessage(items[0]);
+        //ShowMessage(items[0]);
         ShowUpdate(StrToInt(items[0]));
      end);
 end;
@@ -214,6 +215,12 @@ begin
           FormUpdate.Free;
           end;
       end);
+
+     TTask.Run(
+     procedure
+     begin
+       Update.ShowData(id);
+     end);
 end;
 
 Initialization
