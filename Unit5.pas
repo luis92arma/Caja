@@ -91,7 +91,7 @@ implementation
 begin
   q := TFDQuery.Create(nil);
   try
-     q.Connection := dm.db;
+     q.Connection := dm.dbRun;
      q.SQL.Text := 'INSERT INTO cliente(id_cliente, nombre_cliente, tarjeta_cliente, adeudo_cliente)'+
                    ' VALUES(:id,:nombre,:tarjeta,:adeudo)';
      //q.SQL.Add()
@@ -120,7 +120,8 @@ procedure CajaClass.getClientes(lb: TListBox);
 begin
    q := TFDQuery.Create(nil);
    try
-      q.Connection := dm.db;
+      q.Connection := dm.dbRun;
+      //ShowMessage(dm.dbRun.Params.Database);
       q.SQL.Add('SELECT * FROM cliente');
       //Fnombre_cliente := q.FieldByName('id_cliente').AsString;
       //q.Params.ParamByName('id_cliente').Value:=1;

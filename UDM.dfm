@@ -1,5 +1,6 @@
 object dm: Tdm
   OldCreateOrder = False
+  OnCreate = DataModuleCreate
   Height = 387
   Width = 460
   object db: TFDConnection
@@ -9,11 +10,11 @@ object dm: Tdm
       'DriverID=SQLite')
     Connected = True
     LoginPrompt = False
-    Left = 248
-    Top = 24
+    AfterConnect = dbAfterConnect
+    Left = 128
+    Top = 40
   end
   object q_empleado: TFDQuery
-    Active = True
     Connection = db
     SQL.Strings = (
       'select * from empleado;')
@@ -50,7 +51,6 @@ object dm: Tdm
     end
   end
   object q_producto: TFDQuery
-    Active = True
     Connection = db
     SQL.Strings = (
       'select * from producto;')
@@ -98,7 +98,6 @@ object dm: Tdm
     end
   end
   object q_cliente: TFDQuery
-    Active = True
     Connection = db
     SQL.Strings = (
       'select * from cliente;')

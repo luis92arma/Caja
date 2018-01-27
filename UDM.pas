@@ -9,11 +9,12 @@ uses
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs, FireDAC.VCLUI.Wait, Data.DB,
   FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
   FireDAC.DApt, FireDAC.Comp.DataSet, Datasnap.DBClient, Datasnap.Provider,
-  Data.Win.ADODB;
+  Data.Win.ADODB, Vcl.Dialogs, System.IniFiles;
 
 type
   Tdm = class(TDataModule)
     db: TFDConnection;
+    dbRun: TFDConnection;
     q_empleado: TFDQuery;
     q_empleadoid_empleadoi: TIntegerField;
     q_empleadonombre_empleado: TStringField;
@@ -43,6 +44,8 @@ type
     ClientDataSet1tsr_seq: TIntegerField;
     ClientDataSet1tsr_nombre: TStringField;
     ClientDataSet1tsr_medido: TBooleanField;
+    procedure DataModuleCreate(Sender: TObject);
+    procedure dbAfterConnect(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,11 +54,51 @@ type
 
 var
   dm: Tdm;
+  dbIni: TIniFile;
+  dbName: String;
+  driver: String;
+  DatabaseLocation: String;
+  login: Boolean;
+  lock: String;
 
 implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+
+procedure Tdm.DataModuleCreate(Sender: TObject);
+begin
+    dbRun := TFDConnection.Create(nil);
+    with dbRun do
+    begin
+         DriverName := driver;
+         LoginPrompt := login;
+    end;
+    with dbRun.Params do
+    begin
+      Database := DatabaseLocation;
+    end;
+    dbRun.Connected := True;
+end;
+
+procedure Tdm.dbAfterConnect(Sender: TObject);
+begin
+   //ShowMessage('antes');
+   dbIni := TIniFile.Create('C:\ConnectionCaja.ini');
+    try
+       with dbIni do
+       begin
+         dbName := ReadString('dbc','dbName','');
+         driver := ReadString('dbc','driverId','');
+         DatabaseLocation := ReadString('dbc','DatabaseLocation','');
+         login := ReadBool('dbc','login',True);
+         lock := ReadString('dbc','locking','');
+       end;
+    finally
+      dbIni.Free
+    end;
+end;
 
 end.

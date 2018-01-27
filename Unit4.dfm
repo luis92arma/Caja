@@ -11,6 +11,7 @@ object Form4: TForm4
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object ButtonGetCientes: TButton
@@ -182,5 +183,14 @@ object Form4: TForm4
     Caption = 'Empleados'
     TabOrder = 19
     OnClick = EmpleadosButtonClick
+  end
+  object ButtonSaveSett: TButton
+    Left = 8
+    Top = 271
+    Width = 75
+    Height = 25
+    Caption = 'Save Settings'
+    TabOrder = 20
+    OnClick = ButtonSaveSettClick
   end
 end

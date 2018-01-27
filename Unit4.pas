@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
   FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
-  Unit5, UDM, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Buttons, Vcl.Mask, clientes;
+  Unit5, UDM, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Buttons, Vcl.Mask, clientes, System.IniFiles;
 
 type
   TForm4 = class(TForm)
@@ -31,6 +31,7 @@ type
     otraVentaButton: TButton;
     ClienteNuevoButton: TButton;
     EmpleadosButton: TButton;
+    ButtonSaveSett: TButton;
     procedure ButtonGetCientesClick(Sender: TObject);
     procedure ButtonAddProductClick(Sender: TObject);
     procedure totalButtonClick(Sender: TObject);
@@ -38,6 +39,8 @@ type
     procedure otraVentaButtonClick(Sender: TObject);
     procedure ClienteNuevoButtonClick(Sender: TObject);
     procedure EmpleadosButtonClick(Sender: TObject);
+    procedure ButtonSaveSettClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     Empleado: CajaClass;
@@ -47,6 +50,7 @@ type
 
 var
   Form4: TForm4;
+  TestIni: TIniFile;
 
 implementation
 
@@ -62,6 +66,19 @@ procedure TForm4.ButtonGetCientesClick(Sender: TObject);
 begin
    //Empleado.getEmpleado();
    Empleado.getClientes(ListBox1);
+end;
+
+procedure TForm4.ButtonSaveSettClick(Sender: TObject);
+begin
+     TestIni := TIniFile.Create((Application.ExeName)+'settings.ini');
+     try
+       TestIni.WriteInteger('Main','Left',Form4.Left);
+       TestIni.WriteInteger('Main','Top',Form4.Top);
+       TestIni.UpdateFile;
+     finally
+       TestIni.Free;
+     end;
+
 end;
 
 procedure TForm4.ClienteNuevoButtonClick(Sender: TObject);
@@ -95,6 +112,17 @@ begin
          //ShowMessage('Si hay clase');
          ShowModal;
        end;
+     end;
+end;
+
+procedure TForm4.FormCreate(Sender: TObject);
+begin
+     TestIni := TIniFile.Create((Application.ExeName)+'settings.ini');
+     try
+       Form4.Left := TestIni.ReadInteger('Main','Left', Left );
+       Form4.Top := TestIni.ReadInteger('Main','Top', Top );
+     finally
+
      end;
 end;
 
