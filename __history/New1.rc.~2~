@@ -1,0 +1,2 @@
+TGMMap         BITMAP    "GMMap.bmp"
+RES_MAPCODE    RCDATA    "map.html"

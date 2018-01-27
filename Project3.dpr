@@ -1,5 +1,7 @@
 program Project3;
 
+{$R 'New1.res' 'New1.rc'}
+
 uses
   Vcl.Forms,
   Unit4 in 'Unit4.pas' {Form4},

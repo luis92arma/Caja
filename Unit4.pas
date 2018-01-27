@@ -55,6 +55,7 @@ var
 implementation
 
 {$R *.dfm}
+{$R 'New1.res' 'New1.rc'}
 
 procedure TForm4.ButtonAddProductClick(Sender: TObject);
 begin

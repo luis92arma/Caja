@@ -3,15 +3,17 @@
 	<Transactions>
     <Transaction>2018/01/07 15:32:04.000.174,=C:\Users\PC 6630LA\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
     <Transaction>2018/01/07 15:33:49.000.894,=C:\Users\PC 6630LA\Documents\Embarcadero\Studio\Projects\Unit5.pas</Transaction>
-    <Transaction>2018/01/07 15:34:29.000.904,C:\capacitacion\caja\Unit5.pas=C:\Users\PC 6630LA\Documents\Embarcadero\Studio\Projects\Unit5.pas</Transaction>
-    <Transaction>2018/01/07 15:34:31.000.341,C:\capacitacion\caja\Unit4.pas=C:\Users\PC 6630LA\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
-    <Transaction>2018/01/07 15:34:31.000.341,C:\capacitacion\caja\Unit4.dfm=C:\Users\PC 6630LA\Documents\Embarcadero\Studio\Projects\Unit4.dfm</Transaction>
-    <Transaction>2018/01/07 15:34:32.000.269,C:\capacitacion\caja\Project3.dproj=C:\Users\PC 6630LA\Documents\Embarcadero\Studio\Projects\Project3.dproj</Transaction>
+    <Transaction>2018/01/07 15:34:29.000.904,C:\Users\PC 6630LA\Documents\Embarcadero\Studio\Projects\Unit5.pas=C:\capacitacion\caja\Unit5.pas</Transaction>
+    <Transaction>2018/01/07 15:34:31.000.341,C:\Users\PC 6630LA\Documents\Embarcadero\Studio\Projects\Unit4.pas=C:\capacitacion\caja\Unit4.pas</Transaction>
+    <Transaction>2018/01/07 15:34:31.000.341,C:\Users\PC 6630LA\Documents\Embarcadero\Studio\Projects\Unit4.dfm=C:\capacitacion\caja\Unit4.dfm</Transaction>
+    <Transaction>2018/01/07 15:34:32.000.269,C:\Users\PC 6630LA\Documents\Embarcadero\Studio\Projects\Project3.dproj=C:\capacitacion\caja\Project3.dproj</Transaction>
     <Transaction>2018/01/08 09:53:46.000.795,=C:\LAHI\capacitacion\caja\Unit1.pas</Transaction>
-    <Transaction>2018/01/08 09:54:21.000.424,C:\LAHI\capacitacion\caja\UDM.pas=C:\LAHI\capacitacion\caja\Unit1.pas</Transaction>
-    <Transaction>2018/01/08 09:54:21.000.424,C:\LAHI\capacitacion\caja\UDM.dfm=C:\LAHI\capacitacion\caja\Unit1.dfm</Transaction>
+    <Transaction>2018/01/08 09:54:21.000.424,C:\LAHI\capacitacion\caja\Unit1.dfm=C:\LAHI\capacitacion\caja\UDM.dfm</Transaction>
+    <Transaction>2018/01/08 09:54:21.000.424,C:\LAHI\capacitacion\caja\Unit1.pas=C:\LAHI\capacitacion\caja\UDM.pas</Transaction>
     <Transaction>2018/01/09 22:34:55.000.544,=C:\MacroTecnologia\Caja\Unit1.pas</Transaction>
-    <Transaction>2018/01/09 22:37:30.000.870,C:\MacroTecnologia\Caja\Unit1.dfm=C:\MacroTecnologia\Caja\clientes.dfm</Transaction>
-    <Transaction>2018/01/09 22:37:30.000.870,C:\MacroTecnologia\Caja\Unit1.pas=C:\MacroTecnologia\Caja\clientes.pas</Transaction>
+    <Transaction>2018/01/09 22:37:30.000.870,C:\MacroTecnologia\Caja\clientes.dfm=C:\MacroTecnologia\Caja\Unit1.dfm</Transaction>
+    <Transaction>2018/01/09 22:37:30.000.870,C:\MacroTecnologia\Caja\clientes.pas=C:\MacroTecnologia\Caja\Unit1.pas</Transaction>
+    <Transaction>2018/01/27 11:33:12.743,=C:\LAHI\capacitacion\Caja\New1.rc</Transaction>
+    <Transaction>2018/01/27 11:41:31.517,=C:\LAHI\capacitacion\Caja\New2.html</Transaction>
   </Transactions>
 </BorlandProject>
